@@ -11,8 +11,8 @@ public class SpringCloudGatewayRouting {
     public RouteLocator configureRoute(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route("paymentId", r->r.path("/payment/**").uri("http://localhost:9009")) //static routing
-                .route("orderId", r->r.path("/order/**").uri("http://localhost:9560"))
-                .route("orderId", r->r.path("/order/**").uri("lb://ORDER-SERVICE"))
+              //  .route("orderId", r->r.path("/order/**").uri("http://localhost:9560"))
+                .route("OrderService", r->r.path("/order/**").uri("lb://OrderService"))
                 //.route("orderId", r->r.path("/order/**").uri("lb://ORDER-SERVICE")) //dynamic routing
                 .build();
     }
